@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      
+    }
+    .calculator {
+      width: 250px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(18, 16, 16, 0.1);
+      text-align: center;
+      background-color:rgb(109, 76, 143);
+      background-image: url(https://cdn.glitch.global/34244b63-367a-42c8-8fd3-76bb53029b64/calsi%20pic.jpg?v=1708359539972);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    input[type="button"] {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 18px;
+      color: rgb(246, 246, 246);
+      background-color: gray;
+      opacity: 0.8;
+    }
+    button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .fotter{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 1cm;
+        
+    }
+    h3{
+      color: white;
+    }
+  </style>
+</head>
+<body>
+    
+  <div class="calculator">
+    <h3>Basic Calculator</h3>
+    <input type="text"  placeholder="enter number" id="display" readonly>
+    <br>
+    <input type="button" value="7">
+    <input type="button" value="8">
+    <input type="button" value="9">
+   
+    <br>
+    <input type="button" value="4">
+    <input type="button" value="5">
+    <input type="button" value="6">
+    
+    <br>
+    <input type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    
+    <br>
+    <input type="button" value="0">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="+">
+    <input type="button" value="/">
+    <input type="button" value="*">
+    <input type="button" value="-">
+    <div class="fotter">
+    <button  onclick="clearDisplay()">clear</button></div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('input[type="button"]');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        display.value += button.value;
+      });
+    });
+
+    function clearDisplay() {
+      display.value = '';
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch (error) {
+        display.value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
